@@ -33,6 +33,8 @@ BuildRequires:	qt5-build >= %{qt5_ver}
 BuildRequires:	qt5-qmake >= %{qt5_ver}
 BuildRequires:	qt5-qmake >= %{qt5_ver}
 BuildRequires:	rpmbuild(macros) >= 1.605
+BuildRequires:	tar >= 1:1.22
+BuildRequires:	xz
 Requires:	Qt5Core >= %{qt5_ver}
 Requires:	Qt5DBus >= %{qt5_ver}
 Requires:	Qt5Gui >= %{qt5_ver}
