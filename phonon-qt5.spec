@@ -8,7 +8,7 @@ Summary:	Phonon: multimedia API for Qt5/KDE5
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt5/KDE5
 Name:		phonon-qt5
 Version:	4.11.1
-Release:	2
+Release:	3
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/phonon/%{version}/phonon-%{version}.tar.xz
@@ -43,6 +43,7 @@ Requires:	kde-common-dirs >= 0.5
 Provides:	qt5-phonon
 Obsoletes:	Qt5Declarative-plugin-phonon < 4.11.1
 Obsoletes:	qt5-phonon
+Conflicts:	phonon < 4.10.3-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
 %description
