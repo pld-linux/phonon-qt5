@@ -1,14 +1,10 @@
-#
-# Conditional build:
-%bcond_without	zeitgeist	# enable zeitgeist (via libqzeitgeist) supoort
-
 %define		qt5_ver		5.3.1
 
 Summary:	Phonon: multimedia API for Qt5/KDE5
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt5/KDE5
 Name:		phonon-qt5
 Version:	4.11.1
-Release:	3
+Release:	4
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
 Source0:	https://download.kde.org/stable/phonon/%{version}/phonon-%{version}.tar.xz
@@ -25,7 +21,6 @@ BuildRequires:	Qt5Widgets-devel >= %{qt5_ver}
 BuildRequires:	cmake >= 2.8.0
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	kf5-extra-cmake-modules >= 5.60
-%{?with_zeitgeist:BuildRequires:	libqzeitgeist-devel >= 0.8}
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt5-build >= %{qt5_ver}
@@ -41,7 +36,6 @@ Requires:	Qt5Gui >= %{qt5_ver}
 Requires:	Qt5OpenGL >= %{qt5_ver}
 Requires:	Qt5Widgets >= %{qt5_ver}
 Requires:	kde-common-dirs >= 0.5
-%{?with_zeitgeist:Requires:	libqzeitgeist >= 0.8}
 Provides:	qt5-phonon
 Obsoletes:	Qt5Declarative-plugin-phonon < 4.11.1
 Obsoletes:	qt5-phonon
