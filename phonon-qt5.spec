@@ -1,4 +1,4 @@
-%define		qt5_ver		5.3.1
+%define		qt_ver		5.3.1
 
 Summary:	Phonon: multimedia API for Qt5/KDE5
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt5/KDE5
@@ -10,25 +10,25 @@ Group:		X11/Libraries
 Source0:	https://download.kde.org/Attic/phonon/%{version}/phonon-%{version}.tar.xz
 # Source0-md5:	d3df5ba646e4b3f11623d998caa40e74
 URL:		https://userbase.kde.org/Phonon
-BuildRequires:	Qt5Core-devel >= %{qt5_ver}
-BuildRequires:	Qt5Designer-devel >= %{qt5_ver}
-BuildRequires:	Qt5Gui-devel >= %{qt5_ver}
-BuildRequires:	Qt5UiTools-devel >= %{qt5_ver}
-BuildRequires:	Qt5Widgets-devel >= %{qt5_ver}
+BuildRequires:	Qt5Core-devel >= %{qt_ver}
+BuildRequires:	Qt5Designer-devel >= %{qt_ver}
+BuildRequires:	Qt5Gui-devel >= %{qt_ver}
+BuildRequires:	Qt5UiTools-devel >= %{qt_ver}
+BuildRequires:	Qt5Widgets-devel >= %{qt_ver}
 BuildRequires:	cmake >= 3.5
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	kf5-extra-cmake-modules >= 5.60
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
-BuildRequires:	qt5-build >= %{qt5_ver}
-BuildRequires:	qt5-linguist >= %{qt5_ver}
-BuildRequires:	qt5-qmake >= %{qt5_ver}
+BuildRequires:	qt5-build >= %{qt_ver}
+BuildRequires:	qt5-linguist >= %{qt_ver}
+BuildRequires:	qt5-qmake >= %{qt_ver}
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
-Requires:	Qt5Core >= %{qt5_ver}
-Requires:	Qt5Gui >= %{qt5_ver}
-Requires:	Qt5Widgets >= %{qt5_ver}
+Requires:	Qt5Core >= %{qt_ver}
+Requires:	Qt5Gui >= %{qt_ver}
+Requires:	Qt5Widgets >= %{qt_ver}
 Obsoletes:	Qt5Declarative-plugin-phonon < 4.11.1
 Conflicts:	phonon < 4.10.3-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
@@ -57,8 +57,8 @@ Summary:	Header files for Phonon library
 Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt5Core-devel >= %{qt5_ver}
-Requires:	Qt5Gui-devel >= %{qt5_ver}
+Requires:	Qt5Core-devel >= %{qt_ver}
+Requires:	Qt5Gui-devel >= %{qt_ver}
 
 %description devel
 Header files for Phonon library.
@@ -71,7 +71,7 @@ Summary:	Phonon plugin for Qt5 QtDesigner
 Summary(pl.UTF-8):	Wtyczka Phonon dla Qt5 QtDesignera
 Group:		X11/Libraries
 Requires:	%{name} = %{version}-%{release}
-Requires:	Qt5Designer >= %{qt5_ver}
+Requires:	Qt5Designer >= %{qt_ver}
 
 %description -n Qt5Designer-plugin-phonon
 Phonon plugin for Qt5 QtDesigner.
