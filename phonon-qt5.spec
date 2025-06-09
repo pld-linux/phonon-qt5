@@ -29,9 +29,7 @@ BuildRequires:	xz
 Requires:	Qt5Core >= %{qt5_ver}
 Requires:	Qt5Gui >= %{qt5_ver}
 Requires:	Qt5Widgets >= %{qt5_ver}
-Provides:	qt5-phonon
 Obsoletes:	Qt5Declarative-plugin-phonon < 4.11.1
-Obsoletes:	qt5-phonon
 Conflicts:	phonon < 4.10.3-3
 BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 
@@ -61,8 +59,6 @@ Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5Core-devel >= %{qt5_ver}
 Requires:	Qt5Gui-devel >= %{qt5_ver}
-Provides:	qt5-phonon-devel
-Obsoletes:	qt5-phonon-devel
 
 %description devel
 Header files for Phonon library.
