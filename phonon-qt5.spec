@@ -1,14 +1,14 @@
-%define		qt_ver		5.3.1
+%define		qt_ver		5.15.0
 
 Summary:	Phonon: multimedia API for Qt5/KDE5
 Summary(pl.UTF-8):	Phonon - biblioteka multimedialna dla Qt5/KDE5
 Name:		phonon-qt5
-Version:	4.11.1
-Release:	4
+Version:	4.12.0
+Release:	1
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	https://download.kde.org/Attic/phonon/%{version}/phonon-%{version}.tar.xz
-# Source0-md5:	d3df5ba646e4b3f11623d998caa40e74
+Source0:	https://download.kde.org/stable/phonon/%{version}/phonon-%{version}.tar.xz
+# Source0-md5:	e80e9c73967080016bdb3c0ee514ceab
 Patch0:		phonon-qm-suffix.patch
 URL:		https://userbase.kde.org/Phonon
 BuildRequires:	Qt5Core-devel >= %{qt_ver}
@@ -18,7 +18,7 @@ BuildRequires:	Qt5UiTools-devel >= %{qt_ver}
 BuildRequires:	Qt5Widgets-devel >= %{qt_ver}
 BuildRequires:	cmake >= 3.5
 BuildRequires:	glib2-devel >= 2.0
-BuildRequires:	kf5-extra-cmake-modules >= 5.60
+BuildRequires:	kf5-extra-cmake-modules >= 5.90
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt5-build >= %{qt_ver}
@@ -37,16 +37,16 @@ BuildRoot:	%{tmpdir}/%{name}-%{version}-root-%(id -u -n)
 %description
 Phonon is the multimedia API for Qt5/KDE5.
 
-Phonon was originally created to allow KDE 5 to be independent of any
+Phonon was originally created to allow KDE to be independent of any
 single multimedia framework such as GStreamer or Xine and to provide a
-stable API for KDE5's lifetime. It was done to fix problems of
+stable API for KDE's lifetime. It was done to fix problems of
 frameworks becoming unmaintained, API instability, and to create a
 simple multimedia API.
 
 %description -l pl.UTF-8
 Phonon to biblioteka multimedialna dla Qt5/KDE5.
 
-Pierwotnie powstała, aby pozwolić na niezależność KDE 5 od konkretnego
+Pierwotnie powstała, aby pozwolić na niezależność KDE od konkretnego
 środowiska multimedialnego, takiego jak GStreamer czy Xine, oraz
 zapewnić stabilne API na cały czas życia KDE5. Została stworzona w
 celu wyeliminowania problemów z porzucaniem bibliotek i
@@ -99,7 +99,7 @@ Wtyczka Phonon dla Qt5 QtDesignera.
 %setup -q -n phonon-%{version}
 %patch -P0 -p1
 
-for f in po/*/libphonon_qt.po ; do
+for f in poqm/*/libphonon_qt.po ; do
 	%{__mv} "$f" "${f%.po}5.po"
 done
 
@@ -108,7 +108,8 @@ install -d build
 cd build
 %cmake .. \
 	-DKDE_INSTALL_USE_QT_SYS_PATHS=ON \
-	-DPHONON_BUILD_DESIGNER_PLUGIN=ON
+	-DPHONON_BUILD_DESIGNER_PLUGIN=ON \
+	-DPHONON_BUILD_QT6=OFF
 
 %{__make}
 
@@ -136,7 +137,6 @@ rm -rf $RPM_BUILD_ROOT
 %attr(755,root,root) %ghost %{_libdir}/libphonon4qt5experimental.so.4
 %attr(755,root,root) %{_libdir}/libphonon4qt5experimental.so.*.*.*
 %dir %{_libdir}/qt5/plugins/phonon4qt5_backend
-%{_datadir}/phonon4qt5
 
 %files settings -f phononsettings_qt.lang
 %defattr(644,root,root,755)
@@ -153,4 +153,4 @@ rm -rf $RPM_BUILD_ROOT
 
 %files -n Qt5Designer-plugin-phonon
 %defattr(644,root,root,755)
-%attr(755,root,root) %{_libdir}/qt5/plugins/designer/phononwidgets.so
+%attr(755,root,root) %{_libdir}/qt5/plugins/designer/phonon4qt5widgets.so
