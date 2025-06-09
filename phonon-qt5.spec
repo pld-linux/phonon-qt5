@@ -7,9 +7,9 @@ Version:	4.11.1
 Release:	4
 License:	LGPL v2.1 or LGPL v3
 Group:		X11/Libraries
-Source0:	https://download.kde.org/stable/phonon/%{version}/phonon-%{version}.tar.xz
+Source0:	https://download.kde.org/Attic/phonon/%{version}/phonon-%{version}.tar.xz
 # Source0-md5:	d3df5ba646e4b3f11623d998caa40e74
-URL:		http://phonon.kde.org/
+URL:		https://userbase.kde.org/Phonon
 BuildRequires:	Qt5Core-devel >= %{qt5_ver}
 BuildRequires:	Qt5DBus-devel >= %{qt5_ver}
 BuildRequires:	Qt5Declarative-devel >= %{qt5_ver}
