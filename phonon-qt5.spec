@@ -11,31 +11,24 @@ Source0:	https://download.kde.org/Attic/phonon/%{version}/phonon-%{version}.tar.
 # Source0-md5:	d3df5ba646e4b3f11623d998caa40e74
 URL:		https://userbase.kde.org/Phonon
 BuildRequires:	Qt5Core-devel >= %{qt5_ver}
-BuildRequires:	Qt5DBus-devel >= %{qt5_ver}
-BuildRequires:	Qt5Declarative-devel >= %{qt5_ver}
 BuildRequires:	Qt5Designer-devel >= %{qt5_ver}
 BuildRequires:	Qt5Gui-devel >= %{qt5_ver}
-BuildRequires:	Qt5OpenGL-devel >= %{qt5_ver}
-BuildRequires:	Qt5Qml-devel >= %{qt5_ver}
+BuildRequires:	Qt5UiTools-devel >= %{qt5_ver}
 BuildRequires:	Qt5Widgets-devel >= %{qt5_ver}
-BuildRequires:	cmake >= 2.8.0
+BuildRequires:	cmake >= 3.5
 BuildRequires:	glib2-devel >= 2.0
 BuildRequires:	kf5-extra-cmake-modules >= 5.60
 BuildRequires:	pkgconfig
 BuildRequires:	pulseaudio-devel >= 0.9.21
 BuildRequires:	qt5-build >= %{qt5_ver}
-BuildRequires:	qt5-build >= %{qt5_ver}
-BuildRequires:	qt5-qmake >= %{qt5_ver}
+BuildRequires:	qt5-linguist >= %{qt5_ver}
 BuildRequires:	qt5-qmake >= %{qt5_ver}
 BuildRequires:	rpmbuild(macros) >= 1.605
 BuildRequires:	tar >= 1:1.22
 BuildRequires:	xz
 Requires:	Qt5Core >= %{qt5_ver}
-Requires:	Qt5DBus >= %{qt5_ver}
 Requires:	Qt5Gui >= %{qt5_ver}
-Requires:	Qt5OpenGL >= %{qt5_ver}
 Requires:	Qt5Widgets >= %{qt5_ver}
-Requires:	kde-common-dirs >= 0.5
 Provides:	qt5-phonon
 Obsoletes:	Qt5Declarative-plugin-phonon < 4.11.1
 Obsoletes:	qt5-phonon
@@ -67,7 +60,6 @@ Summary(pl.UTF-8):	Pliki nagłówkowe biblioteki Phonon
 Group:		X11/Development/Libraries
 Requires:	%{name} = %{version}-%{release}
 Requires:	Qt5Core-devel >= %{qt5_ver}
-Requires:	Qt5DBus-devel >= %{qt5_ver}
 Requires:	Qt5Gui-devel >= %{qt5_ver}
 Provides:	qt5-phonon-devel
 Obsoletes:	qt5-phonon-devel
@@ -110,6 +102,7 @@ rm -rf $RPM_BUILD_ROOT
 
 install -d $RPM_BUILD_ROOT%{_libdir}/qt5/plugins/phonon4qt5_backend
 
+# libphonon_qt.qm and phononsettings_qt.qm files
 %find_lang libphonon_qt --with-qm --all-name
 
 %clean
